@@ -1,30 +1,655 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Momentum Privacy Policy</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Momentum</title>
+  <meta name="description" content="Momentum Privacy Policy. Learn how we handle your data with a privacy-first approach.">
+  
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Reset & Theme Variables ── */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: hsl(240, 10%, 3.5%);
+      --bg-elevated: hsl(240, 10%, 6%);
+      --surface: hsla(240, 10%, 10%, 0.4);
+      --surface-hover: hsla(240, 10%, 14%, 0.6);
+      --border: hsla(0, 0%, 100%, 0.06);
+      --text: hsl(0, 0%, 96%);
+      --text-secondary: hsl(240, 5%, 70%);
+      --text-tertiary: hsl(240, 4%, 48%);
+      --accent: hsl(252, 78%, 60%);
+      --accent-glow: hsla(252, 78%, 60%, 0.25);
+      --accent-gradient: linear-gradient(135deg, hsl(252, 78%, 60%) 0%, hsl(263, 65%, 50%) 100%);
+      --success: hsl(142, 71%, 45%);
+      --success-glow: hsla(142, 71%, 45%, 0.1);
+      --radius: 18px;
+      --max-width: 1040px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+
+    /* ── Backdrop ── */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image: 
+        linear-gradient(rgba(108, 92, 231, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(108, 92, 231, 0.015) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .bg-glow {
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(108, 92, 231, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 18px 24px;
+      background: rgba(10, 10, 15, 0.7);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-icon {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-gradient);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px var(--accent-glow);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .btn-nav {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 10px;
+      color: #fff !important;
+    }
+
+    .btn-nav:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* ── Layout & Columns ── */
+    .content-wrapper {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 140px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-block {
+      margin-bottom: 56px;
+    }
+
+    .page-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 100px;
+      border: 1px solid rgba(108, 92, 231, 0.2);
+      background: rgba(108, 92, 231, 0.06);
+      font-size: 13px;
+      font-weight: 600;
+      color: #a29bfe;
+      margin-bottom: 20px;
+    }
+
+    .header-block h1 {
+      font-size: clamp(36px, 5vw, 48px);
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    .header-block h1 .gradient {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .last-updated {
+      font-size: 14px;
+      color: var(--text-tertiary);
+    }
+
+    .legal-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 60px;
+    }
+
+    /* Sidebar Table of Contents */
+    .sidebar-toc {
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+    }
+
+    .sidebar-toc h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+      margin-bottom: 18px;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .toc-item a {
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.2s;
+      display: block;
+      border-left: 2px solid transparent;
+      padding-left: 14px;
+    }
+
+    .toc-item a:hover {
+      color: #fff;
+    }
+
+    .toc-item.active a {
+      color: var(--accent);
+      border-left-color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Legal Articles */
+    .legal-content {
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+    }
+
+    .highlight-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .highlight-box.accent {
+      border-color: rgba(108, 92, 231, 0.2);
+      background: linear-gradient(135deg, rgba(108, 92, 231, 0.06) 0%, rgba(108, 92, 231, 0.01) 100%);
+    }
+
+    .highlight-box.success {
+      border-color: rgba(0, 184, 148, 0.2);
+      background: linear-gradient(135deg, rgba(0, 184, 148, 0.04) 0%, rgba(0, 184, 148, 0.005) 100%);
+    }
+
+    .highlight-box h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .highlight-box p {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      margin-bottom: 0;
+    }
+
+    .legal-section {
+      scroll-margin-top: 100px;
+    }
+
+    .legal-section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .legal-section p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 18px;
+    }
+
+    .legal-section ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .legal-section li {
+      position: relative;
+      font-size: 15px;
+      color: var(--text-secondary);
+      padding-left: 24px;
+    }
+
+    .legal-section li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .legal-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14.5px;
+      text-align: left;
+    }
+
+    .legal-table th, .legal-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .legal-table th {
+      color: #fff;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .legal-table td {
+      color: var(--text-secondary);
+    }
+
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .contact-card h3 {
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .contact-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .contact-card a {
+      color: #a29bfe;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: color 0.2s;
+      border-bottom: 1px dotted rgba(162, 155, 254, 0.4);
+    }
+
+    .contact-card a:hover {
+      color: #fff;
+      border-bottom-color: #fff;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      position: relative;
+      z-index: 1;
+      background: rgba(10, 10, 15, 0.4);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 820px) {
+      .nav-links {
+        display: none;
+      }
+      .legal-layout {
+        grid-template-columns: 1fr;
+      }
+      .sidebar-toc {
+        display: none; /* Hide TOC on smaller tablet & mobile views */
+      }
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Privacy Policy</h1>
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
 
-  <p>Last Updated: June 2026</p>
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <div class="brand-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="color: #fff;"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="1"></circle></svg>
+        </div>
+        Momentum
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="privacy.html" style="color: #fff;">Privacy</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="https://apps.apple.com/app/momentum/id6778174841" class="btn-nav">Download App</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <p>Momentum helps users track habits and personal progress.</p>
+  <!-- Legal Main Section -->
+  <main class="content-wrapper">
+    <div class="header-block">
+      <div class="page-badge">🔒 Privacy First Architecture</div>
+      <h1>Privacy <span class="gradient">Policy</span></h1>
+      <p class="last-updated">Last updated: June 10, 2026</p>
+    </div>
 
-  <h2>Information We Collect</h2>
-  <ul>
-    <li>Habit and activity data created by users (only for premium users, for cloud syncup)</li>
-    <li>Subscription status</li>
-    <li>Optional account information for premium features</li>
-  </ul>
+    <div class="legal-layout">
+      <!-- Sticky Sidebar TOC -->
+      <aside class="sidebar-toc">
+        <h4>Sections</h4>
+        <ul class="toc-list">
+          <li class="toc-item active"><a href="#collect">1. Information We Collect</a></li>
+          <li class="toc-item"><a href="#usage">2. How We Use It</a></li>
+          <li class="toc-item"><a href="#storage">3. Storage &amp; Security</a></li>
+          <li class="toc-item"><a href="#thirdparty">4. Third-Party Services</a></li>
+          <li class="toc-item"><a href="#sharing">5. Data Sharing</a></li>
+          <li class="toc-item"><a href="#deletion">6. Data Deletion</a></li>
+          <li class="toc-item"><a href="#children">7. Children's Privacy</a></li>
+          <li class="toc-item"><a href="#changes">8. Policy Updates</a></li>
+        </ul>
+      </aside>
 
-  <h2>How We Use Information</h2>
-  <ul>
-    <li>To provide habit tracking functionality</li>
-    <li>To synchronize data across devices</li>
-    <li>To improve app reliability and performance</li>
-  </ul>
+      <!-- Main Legal Texts -->
+      <div class="legal-content">
+        
+        <div class="highlight-box success">
+          <h3>🛡️ Privacy-First by Design</h3>
+          <p>Momentum is built with local-first storage. For free users, all habits, streaks, and analytics are stored directly on your physical device. We have no access to your database unless you explicitly subscribe to cloud sync services.</p>
+        </div>
 
-  <h2>Contact</h2>
-  <p>Email: momentumdailyapp@gmail.com</p>
+        <!-- Section 1 -->
+        <section class="legal-section" id="collect">
+          <h2>1. Information We Collect</h2>
+          <p>We only collect the absolute minimum data necessary to run, optimize, and secure the Momentum app experience.</p>
+          <table class="legal-table">
+            <thead>
+              <tr>
+                <th>Data Category</th>
+                <th>Collection Mechanism</th>
+                <th>Usage Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Habit Records</strong></td>
+                <td>Stored locally (Free) or synced securely (Premium)</td>
+                <td>To display checklists, calculate streaks, and build charts.</td>
+              </tr>
+              <tr>
+                <td><strong>Account Details</strong></td>
+                <td>AWS Cognito Registration</td>
+                <td>Used only for sync access control for Premium users.</td>
+              </tr>
+              <tr>
+                <td><strong>Subscriptions</strong></td>
+                <td>RevenueCat Sandbox / Apple Store entitlement verification</td>
+                <td>Used to verify payment and subscription status.</td>
+              </tr>
+              <tr>
+                <td><strong>Installation UUID</strong></td>
+                <td>Locally generated, anonymous identifier</td>
+                <td>Allows us to safely track active counts without personal profiling.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="legal-section" id="usage">
+          <h2>2. How We Use Your Information</h2>
+          <p>We use the data collected strictly for the following purposes:</p>
+          <ul>
+            <li><strong>Habit Checklists &amp; Streaks</strong>: To build your daily lists, streaks, and charts.</li>
+            <li><strong>Premium Sync</strong>: To synchronise active habits across multiple Apple devices.</li>
+            <li><strong>Performance Optimization</strong>: Anonymous usage telemetry allows us to track performance statistics and prevent app crashes.</li>
+            <li><strong>Support Requests</strong>: To respond to messages or feedback queries sent directly by you.</li>
+          </ul>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="legal-section" id="storage">
+          <h2>3. Data Storage &amp; Security</h2>
+          <p>For Free users, your data is written locally on your device via SQLite and remains entirely private under your phone OS sandbox security.</p>
+          <p>For Premium sync users, your data is sent via secure transport layer channels (TLS 1.2+) and stored inside an encrypted AWS PostgreSQL database in the Asia-Pacific (Sydney) region. We isolate cloud environments and verify all access with scoped, temporary AWS IAM credentials.</p>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="legal-section" id="thirdparty">
+          <h2>4. Third-Party Services</h2>
+          <p>Momentum integrates with verified partners to process accounts and purchases securely:</p>
+          <ul>
+            <li><strong>AWS Cognito</strong>: Manages signup credentials, tokens, and credentials authorization.</li>
+            <li><strong>RevenueCat</strong>: Standardized library for managing subscriptions and verifying status in compliance with Apple requirements.</li>
+            <li><strong>Apple App Store</strong>: Safe transaction processing for all in-app purchases.</li>
+          </ul>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="legal-section" id="sharing">
+          <h2>5. Data Sharing</h2>
+          <p>We do not sell, rent, license, or barter your habit data or account details to third parties. We do not participate in targeted ad tracking networks. Your database logs are only shared with AWS or RevenueCat as needed to provide cloud hosting and billing verification.</p>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="legal-section" id="deletion">
+          <h2>6. Data Deletion</h2>
+          <p>You have full control over your habit history and account details at all times.</p>
+          <ul>
+            <li><strong>Free Users</strong>: Simply uninstalling the app deletes all SQLite database logs from your iOS device storage.</li>
+            <li><strong>Premium Users</strong>: You can request complete cloud account deletion directly from the Profile tab in the app or by sending an email request. We will delete all synced habits and identity tokens within 30 days.</li>
+          </ul>
+        </section>
+
+        <!-- Section 7 -->
+        <section class="legal-section" id="children">
+          <h2>7. Children's Privacy</h2>
+          <p>While Momentum's habit-tracking features are family-friendly and completely safe for all ages, the app's online services (such as cloud sync) are not directed at or designed to collect personal information from children under the age of 13. We do not knowingly collect or sync personal details (such as email addresses) from children under 13. If you suspect a child has registered a cloud account, notify us immediately for swift account deletion.</p>
+        </section>
+
+        <!-- Section 8 -->
+        <section class="legal-section" id="changes">
+          <h2>8. Changes to This Policy</h2>
+          <p>We may make minor changes to this policy to align with new features. Any updates will update the "Last updated" timestamp at the top of this page. Your continued usage of the application confirms your acceptance of any revisions.</p>
+        </section>
+
+        <!-- Contact Block -->
+        <div class="contact-card">
+          <h3>Have privacy questions?</h3>
+          <p>If you need access to your synced cloud files or want to request manual account deletion, get in touch with our team.</p>
+          <a href="mailto:momentumdailyapp@gmail.com">momentumdailyapp@gmail.com</a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-copy">© 2026 Momentum. All rights reserved.</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="support.html">Support Center</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Table of Contents Active Highlighting -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('.legal-section');
+      const tocItems = document.querySelectorAll('.toc-item');
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -60% 0px',
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const activeId = entry.target.getAttribute('id');
+            
+            // Remove active status from all
+            tocItems.forEach(item => {
+              item.classList.remove('active');
+              const link = item.querySelector('a');
+              if (link && link.getAttribute('href') === `#${activeId}`) {
+                item.classList.add('active');
+              }
+            });
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(section => observer.observe(section));
+    });
+  </script>
 </body>
 </html>
